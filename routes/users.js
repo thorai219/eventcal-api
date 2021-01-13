@@ -5,9 +5,8 @@ const EventsApi = require("../data/EventsApi");
 
 router.get("/", async (req, res, next) => {
   try {
-    let { t } = req.params;
-    console.log(t);
-    let result = await EventsApi.searchEvents();
+    let { date } = req.query;
+    let result = await EventsApi.searchEvents(date);
     return res.json({ result });
   } catch (err) {
     console.error(err.message);

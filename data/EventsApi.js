@@ -4,10 +4,9 @@ const { API_KEY } = require("../config");
 const BASE_URL = `https://api.eventful.com/json/events/search?app_key=${API_KEY}`;
 
 class Events {
-  static async searchEvents() {
-    const events = await axios.get(
-      `${BASE_URL}&within=60&date=today&l=belfair&t=9+jaunary+2021`
-    );
+  static async searchEvents(date) {
+    let url = `${BASE_URL}&keyword=sports&within=50&location=98546&date=${date}`;
+    const events = await axios.get(url);
     return events.data;
   }
 }
