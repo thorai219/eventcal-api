@@ -14,4 +14,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/categories", async (req, res, next) => {
+  try {
+    let result = await EventsApi.getCategoryList();
+    return res.json({ result });
+  } catch (err) {
+    console.error(err.message);
+    return next(err);
+  }
+});
+
 module.exports = router;
