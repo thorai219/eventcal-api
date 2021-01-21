@@ -18,7 +18,7 @@ class Events {
     console.log(dateRange);
     let url = `${BASE_URL}/json/events/search?app_key=${API_KEY}
               &page_size=50&within=25&change_multi_day_start=true
-              &location=seattle&category=games&date=${dateRange}`;
+              &location=seattle&date=${dateRange}`;
     const events = await axios.get(url);
     return events.data;
   }
