@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "title": "Update user",
+  "description": "update user",
+  "default": {},
+  "examples": [
+      {
+          "username": "username123",
+          "password": "password123",
+          "email": "email@email.com",
+          "full_name": "Terry Lee",
+          "_token": "foo123"
+      }
+  ],
+  "properties": {
+      "username": {
+          "$id": "#/properties/username",
+          "type": "string",
+          "title": "The username schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "username123"
+          ]
+      },
+      "password": {
+          "$id": "#/properties/password",
+          "type": "string",
+          "title": "The password schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "password123"
+          ]
+      },
+      "email": {
+          "$id": "#/properties/email",
+          "type": "string",
+          "title": "The email schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "email@email.com"
+          ]
+      },
+      "full_name": {
+          "$id": "#/properties/full_name",
+          "type": "string",
+          "title": "The full_name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "Terry Lee"
+          ]
+      },
+      "_token": {
+          "$id": "#/properties/_token",
+          "type": "string",
+          "title": "The _token schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "foo123"
+          ]
+      }
+  },
+  "additionalProperties": false
+}

@@ -1,12 +1,12 @@
 const express = require("express");
 const ExpressError = require("../helpers/ExpressError");
 const router = express.Router();
-const EventsApi = require("../data/EventsApi");
+const Event = require("../models/event");
 
 router.get("/", async (req, res, next) => {
   try {
     let { date } = req.query;
-    let result = await EventsApi.searchEvents(date);
+    let result = await Event.getEvents(date);
     return res.json({ result });
   } catch (err) {
     console.error(err.message);
