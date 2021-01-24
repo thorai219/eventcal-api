@@ -8,10 +8,9 @@ class User {
   // authenticate with username, password. returns user or throws error.
   static async authenticate(data) {
     // find the user first
-    const result = db.query(
-      `SELECT username, email, password, full_name, zip_code, interests from user where username = $1`,
-      [data.username]
-    );
+    const result = await db.query(`SELECT * FROM users WHERE username = $1`, [
+      data.username,
+    ]);
 
     const user = result.rows[0];
 
@@ -22,22 +21,22 @@ class User {
       if (isValid) {
         return user;
       }
+      // if password doesn't match throw error
+      const invalidPasword = new Error("Invalid Password");
+      invalidPasword.status = 401;
+      throw invalidPasword;
     }
-    // if password doesn't match throw error
-    const invalidPasword = new Error("Invalid Password");
-    invalidPasword.status = 401;
-    throw invalidPasword;
   }
 
   static async register(data) {
     // check if there is duplicate in database
     const duplicateCheck = await db.query(
-      `SELECT username, email FROM user WHERE username = $1`,
+      `SELECT username, email FROM users WHERE username = $1`,
       [data.username]
     );
     // check if username or email is a duplicate
     if (duplicateCheck.rows[0]) {
-      const err;
+      let err = "";
       if (duplicateCheck.rows[0].email === data.email) {
         err = new Error("You already have an account with us!");
       }
@@ -53,10 +52,10 @@ class User {
     const result = await db.query(
       `INSERT INTO users (username, password, email, full_name, zip_code, interests)
         VALUES ($1, $2, $3, $4, $5, $6)
-          RETURNING username, email, full_name, zip_code, interests`,
+          RETURNING *;`,
       [
         data.username,
-        data.password,
+        hashedPassword,
         data.email,
         data.full_name,
         data.zip_code,
@@ -73,6 +72,10 @@ class User {
       `SELECT user2_id FROM friends WHERE user1_id = $1`,
       [user.id]
     );
+
+    if (!result.rows[0]) {
+      throw new Error(`Invite some friends to see them listed here`);
+    }
 
     return result.rows;
   }

@@ -14,14 +14,18 @@ app.use(
 app.use(bodyParser.json());
 
 // routes imports
-const eventRoutes = require("./routes/events");
+const eventRoute = require("./routes/events");
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(cors());
 // routes
 
-app.use("/events", eventRoutes);
+app.use("/events", eventRoute);
+app.use("/users", userRoute);
+app.use("/login", authRoute);
 
 app.use((req, res, next) => {
   const err = new ExpressError("Not Found", 404);

@@ -1,0 +1,38 @@
+{
+  "title": "User login schema",
+  "description": "user login schema.",
+  "default": {},
+  "examples": [
+      {
+          "username": "terrylee",
+          "password": "terry123"
+      }
+  ],
+  "required": [
+      "username",
+      "password"
+  ],
+  "properties": {
+      "username": {
+          "$id": "#/properties/username",
+          "type": "string",
+          "title": "The username schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "terrylee"
+          ]
+      },
+      "password": {
+          "$id": "#/properties/password",
+          "type": "string",
+          "title": "The password schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "terry123"
+          ]
+      }
+  },
+  "additionalProperties": false
+}

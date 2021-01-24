@@ -1,0 +1,107 @@
+{
+  "title": "new event schema",
+  "description": "new event schema",
+  "default": {},
+  "examples": [
+      {
+          "name": "Music Festival",
+          "details": "Music Festival at zoom",
+          "location": "zoom 123453",
+          "start_date": "20210222",
+          "end_date": "20210222",
+          "start_time": "00:00:00",
+          "end_time": "00:00:00",
+          "url": "www.event.com"
+      }
+  ],
+  "required": [
+      "name",
+      "location",
+      "start_date",
+      "end_date",
+      "url"
+  ],
+  "properties": {
+      "name": {
+          "$id": "#/properties/name",
+          "type": "string",
+          "title": "The name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "Music Festival"
+          ]
+      },
+      "details": {
+          "$id": "#/properties/details",
+          "type": "string",
+          "title": "The details schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "Music Festival at zoom"
+          ]
+      },
+      "location": {
+          "$id": "#/properties/location",
+          "type": "string",
+          "title": "The location schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "zoom 123453"
+          ]
+      },
+      "start_date": {
+          "$id": "#/properties/start_date",
+          "type": "string",
+          "title": "The start_date schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "20210222"
+          ]
+      },
+      "end_date": {
+          "$id": "#/properties/end_date",
+          "type": "string",
+          "title": "The end_date schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "20210222"
+          ]
+      },
+      "start_time": {
+          "$id": "#/properties/start_time",
+          "type": "string",
+          "title": "The start_time schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "00:00:00"
+          ]
+      },
+      "end_time": {
+          "$id": "#/properties/end_time",
+          "type": "string",
+          "title": "The end_time schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "00:00:00"
+          ]
+      },
+      "url": {
+          "$id": "#/properties/url",
+          "type": "string",
+          "title": "The url schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "www.event.com"
+          ]
+      }
+  },
+  "additionalProperties": true
+}

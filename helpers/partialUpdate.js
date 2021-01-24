@@ -24,4 +24,4 @@ const partialUpdate = (table, items, key, id) => {
   return { query, values };
 };
 
-module.exports = sqlForPartialUpdate;
+module.exports = partialUpdate;
